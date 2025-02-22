@@ -1,0 +1,102 @@
+{% extends 'HospitalApp/user_base.html' %}
+{% load static %}
+
+{% block title %}Book Packages{% endblock %}
+
+{% block extra_css %}
+<style>
+    body {
+        overflow-x: hidden; /* Prevents horizontal scroll */
+    }
+
+    .container-fluid {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh; /* Ensures vertical centering */
+        padding: 0 15px; /* Avoids excessive left space */
+    }
+
+    .form-container {
+        max-width: 600px;
+        width: 100%;
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .table {
+        width: 100%;
+    }
+
+    .table td {
+        padding: 5px;
+        vertical-align: middle;
+        width: 50%; /* Equal width for label & input */
+    }
+
+    .table input, .table select {
+        width: 100%;
+        padding: 8px;
+        font-size: 1rem;
+        border-radius: 6px;
+        border: 1px solid #ced4da;
+        background: #fff;
+    }
+
+    .text-center {
+        margin-top: 20px;
+    }
+
+    .btn-primary {
+        width: 30%;
+        font-size: 1rem;
+        padding: 8px;
+        border-radius: 6px;
+        transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+        background: #0056b3;
+        transform: scale(1.05);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="form-container">
+        <h1 class="text-center">Book Package</h1>
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table class="table table-bordered">
+                <tr>
+                    <td><label for="id_name">Name</label></td>
+                    <td>{{ form.name }}</td>
+                </tr>
+
+                <tr>
+                    <td><label for="id_email">Email</label></td>
+                    <td>{{ form.email }}</td>
+                </tr>
+
+                <tr>
+                    <td><label for="id_phone">Phone No.</label></td>
+                    <td>{{ form.phone }}</td>
+                </tr>
+
+                <tr>
+                    <td><label for="id_package">Select Package</label></td>
+                    <td>{{ form.package_type }}</td>
+                </tr>
+            </table>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

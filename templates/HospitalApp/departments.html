@@ -1,0 +1,41 @@
+{% extends 'HospitalApp/user_base.html' %}
+{% load static %}
+
+{% block title %}
+Departments
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <!-- Page Header -->
+    <div class="text-center mb-4">
+        <h1 class="text-primary">Our Departments</h1>
+        <p class="text-muted">Explore the various departments and the facilities we offer.</p> 
+    </div>
+
+    <!-- Departments Grid -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">  <!-- 4 cards per row -->
+        {% for dep in departments %}
+        <div class="col">
+            <div class="card h-100">
+                {% if dep.department_photo %}
+                    <img src="{{ dep.department_photo.url }}" 
+                         alt="Department Photo" 
+                         class="card-img-top img-fluid" 
+                         style="height: 250px; width: 100%; object-fit: cover;"> 
+                {% else %}
+                    <div class="text-center py-3">No image</div>
+                {% endif %}
+               
+                <div class="card-body">
+                    <h5 class="card-title text-primary text-center">{{ dep.department }}</h5>  <!-- Centered Title -->
+                    <p class="card-text text-center">
+                        {{ dep.notes }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

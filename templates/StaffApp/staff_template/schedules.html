@@ -1,0 +1,70 @@
+{% extends 'StaffApp/staff_template/staff_base.html' %}
+{% load static %}
+
+{% block title %}Schedules{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<style>
+    .container {
+       
+        max-width: 1200px; /* Ensure it doesn't stretch */
+    }
+    .consulted {
+        color: white;
+        background-color: #28a745;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+    .not-consulted {
+        color: white;
+        background-color: #dc3545;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center mb-4">My Schedules</h2>
+    
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Patient Name</th>
+                <th>Phone Number</th>
+                <th>Date</th>
+                <th>Slot</th>
+                <th>Appointment Status</th>
+                <th>Prescription</th>
+                
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for appointment in appointments %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                
+                <td>{{ appointment.patient }}</td>
+                <td>{{ appointment.phone }}</td>
+                <td>{{ appointment.appointment_date }}</td>
+                <td>{{ appointment.appointment_slot }}</td>
+                <td><span >{{ appointment.status}}</span></td>
+                <td>
+                    <a href="{% url 'view_prescription' appointment.id %}" class="btn btn-info btn-sm" title="View Prescription">
+                        <i class="fas fa-eye"></i>
+                    </a>
+                    <a href="{% url 'add_prescription' appointment.id %}" class="btn btn-warning btn-sm" title="Edit Prescription">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}  
+        </tbody>
+    </table>
+</div>
+{% endblock %}

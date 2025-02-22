@@ -1,0 +1,151 @@
+{% extends 'HospitalApp/user_base.html' %}
+{% load static %}
+
+{% block title %}
+Departments
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <!-- Page Header -->
+    <div class="text-center mb-4">
+        <h1 class="text-primary">Our Departments</h1>
+        <p class="text-muted">Explore the various departments and the facilities we offer.</p> 
+    </div>
+
+    <!-- Departments Grid -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <!-- Cardiology -->
+        <div class="col">
+            <div class="card h-100">
+                <img src="{% static 'HospitalApp/assets/img/departments/Cardiology.jpg' %}" class="card-img-top" alt="Cardiology">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Cardiology</h5>
+                    <p class="card-text">
+                        The Cardiology Department provides world-class care with state-of-the-art equipment
+                        and highly skilled professionals specializing in heart-related treatments.
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Neurology -->
+        <div class="col">
+            <div class="card h-100">
+                <img src="{% static 'HospitalApp/assets/img/departments/Neurology.jpg' %}" class="card-img-top" alt="Neurology">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Neurology</h5>
+                    <p class="card-text">
+                        Specializing in brain and nervous system disorders, the Neurology Department offers
+                        advanced diagnostics and comprehensive treatments.
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Pediatrics -->
+        <div class="col">
+            <div class="card h-100">
+                <img src="{% static 'HospitalApp/assets/img/departments/Pediatrics.jpg' %}" class="card-img-top" alt="Pediatrics">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Pediatrics</h5>
+                    <p class="card-text">
+                        Our Pediatrics Department is dedicated to providing exceptional care for infants,
+                        children, and adolescents with a compassionate touch.
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Endocrinology -->
+        <div class="col">
+            <div class="card h-100">
+                <img src="{% static 'HospitalApp/assets/img/departments/Endocrinology.jpg' %}" class="card-img-top" alt="Endocrinology">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Endocrinology</h5>
+                    <p class="card-text">
+                        The Endocrinology Department specializes in diagnosing and managing hormonal disorders, including diabetes, thyroid conditions, and adrenal gland issues.
+                    </p>
+                </div>
+               
+            </div>
+        </div>
+
+        <!-- Oncology -->
+        <div class="col">
+            <div class="card h-100">
+                <img src="{% static 'HospitalApp/assets/img/departments/Oncology.jpg' %}" class="card-img-top" alt="Oncology">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Oncology</h5>
+                    <p class="card-text">
+                        The Oncology Department provides comprehensive cancer care, including early detection, diagnosis, and advanced treatments like chemotherapy and radiotherapy.
+                      </p>
+                </div>
+               
+            </div>
+        </div>
+
+        <!-- Dermatology -->
+        <div class="col">
+            <div class="card h-100">
+                <img src="{% static 'HospitalApp/assets/img/departments/Dermatology.jpg' %}" class="card-img-top" alt="Dermatology">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Dermatology</h5>
+                    <p class="card-text">
+                        The Dermatology Department specializes in diagnosing and treating skin, hair, and nail conditions. Our experts offer advanced care for issues such as acne, eczema, psoriasis, and more.
+                    </p>
+                </div>
+              
+            </div>
+        </div>
+
+        <!-- Gynecology & Obstetrics -->
+        <div class="col">
+            <div class="card h-100">
+                <img src="{% static 'HospitalApp/assets/img/departments/Gynecology.jpeg' %}" class="card-img-top" alt="Gynecology">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Gynecology & Obstetrics</h5>
+                    <p class="card-text">
+                        The Gynecology & Obstetrics Department provides comprehensive care for women’s reproductive health, including prenatal care, safe childbirth, and management of gynecological conditions.
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Psychiatry -->
+        <div class="col">
+            <div class="card h-100">
+                <img src="{% static 'HospitalApp/assets/img/departments/Psychiatry.jpeg' %}" class="card-img-top" alt="Psychiatry">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Psychiatry</h5>
+                    <p class="card-text">
+                        The Psychiatry Department offers expert care for mental health conditions, including anxiety, depression, and mood disorders.We aim to promote emotional well-being and resilience
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+
+          <!-- Radiology -->
+          <div class="col">
+            <div class="card h-100">
+                <img src="{% static 'HospitalApp/assets/img/departments/Radiology.jpeg' %}" class="card-img-top" alt="Radiology">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Radiology</h5>
+                    <p class="card-text">
+                        The Radiology Department provides advanced imaging services, including X-rays, MRIs, CT scans, and ultrasounds. We prioritize patient safety and comfort during every procedure
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+{% endblock %}

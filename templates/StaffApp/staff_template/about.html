@@ -1,0 +1,100 @@
+{% extends 'StaffApp/staff_template/staff_base.html' %}
+{% load static %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4">About Us</h1>
+        <p class="lead">Caring for your health with excellence, compassion, and innovation.</p>
+    </div>
+
+    <div class="row">
+        <!-- Section 1: Mission and Vision -->
+        <div class="col-lg-6">
+            <h3 class="mb-3">Our Mission</h3>
+            <p>
+                To provide world-class healthcare services that improve the well-being of our patients
+                and their families, driven by a commitment to innovation, quality, and patient-centered care.
+            </p>
+            <h3 class="mt-5 mb-3">Our Vision</h3>
+            <p>
+                To be a leading healthcare provider known for excellence in clinical care, education,
+                and community service, ensuring that every life we touch is transformed for the better.
+            </p>
+        </div>
+        <div class="col-lg-6 text-center">
+            
+            <img src="{% static 'HospitalApp/assets/img/about.jpg' %}"class="img-fluid rounded shadow" alt="Hospital Image">
+        </div>
+    </div>
+
+    <!-- Section 2: Our Values -->
+    <div class="mt-5">
+        <h3 class="mb-4 text-center">Our Core Values</h3>
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <i class="bi bi-heart-fill text-danger display-3"></i>
+                <h5 class="mt-3">Compassion</h5>
+                <p>Empathy and respect are at the heart of everything we do.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <i class="bi bi-award-fill text-warning display-3"></i>
+                <h5 class="mt-3">Excellence</h5>
+                <p>Delivering the highest quality of care to every patient.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <i class="bi bi-people-fill text-primary display-3"></i>
+                <h5 class="mt-3">Teamwork</h5>
+                <p>Collaborating across disciplines to achieve outstanding results.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3: Why Choose Us -->
+    <div class="mt-5">
+        <h3 class="text-center mb-4">Why Choose Us</h3>
+        <div class="row">
+            <div class="col-md-5">
+                <ul class="list-unstyled">
+                    <li class="mb-3">
+                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                        State-of-the-art facilities and advanced medical technology.
+                    </li>
+                    <li class="mb-3">
+                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                        A team of highly qualified and experienced healthcare professionals.
+                    </li>
+                    <li class="mb-3">
+                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                        A patient-centered approach ensuring personalized care.
+                    </li>
+                    <li class="mb-3">
+                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                        Round-the-clock emergency and critical care services.
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-7">
+                <img src="{% static 'HospitalApp/assets/img/about3.jpeg' %}" class="img-fluid rounded shadow" 
+                alt="Why Choose Us" 
+                style="max-width: 150px; height: auto;">
+                <img src="{% static 'HospitalApp/assets/img/about1.jpeg' %}" class="img-fluid rounded shadow" 
+                alt="Why Choose Us" 
+                style="max-width: 150px; height: auto;">
+                <img src="{% static 'HospitalApp/assets/img/about2.jpeg' %}" class="img-fluid rounded shadow" 
+                alt="Why Choose Us" 
+                style="max-width: 150px; height: auto;">
+                <img src="{% static 'HospitalApp/assets/img/about2.jpeg' %}" class="img-fluid rounded shadow" 
+                alt="Why Choose Us" 
+                style="max-width: 150px; height: auto;">
+            </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

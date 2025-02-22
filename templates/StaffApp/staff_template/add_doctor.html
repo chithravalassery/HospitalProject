@@ -1,0 +1,133 @@
+{% extends 'StaffApp/staff_template/staff_base.html' %}
+{% load static %}
+
+{% block title %}Add Doctor{% endblock %}
+
+{% block extra_css %}
+<style>
+    .custom-card {
+        max-width: 750px;
+        margin: 0 auto;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 12px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .form-label {
+        font-weight: bold;
+        font-size: 1rem;
+    }
+
+    /* Ensuring all form elements are aligned properly */
+    .form-group {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        flex: 1;
+        text-align: left;
+        padding-right: 15px;
+    }
+
+    .form-group .form-control, .form-group select, .form-group input {
+        flex: 2;
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        border-radius: 6px;
+        border: 1px solid #ced4da;
+        background: #fff;
+    }
+
+    /* Fix for File Upload field */
+    .form-group input[type="file"] {
+        padding: 5px;
+    }
+
+    /* Center Button */
+    .text-center {
+        margin-top: 20px;
+    }
+
+    .btn-primary {
+        width: 100%;
+        font-size: 1.2rem;
+        padding: 12px;
+        border-radius: 8px;
+        transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+        background: #0056b3;
+        transform: scale(1.05);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center" style="font-size: 2rem;">Doctor details</h2>
+    <div class="card custom-card">
+        <div class="card-body">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="id_name" class="form-label">Name:</label>
+                    {{ form.name }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_gender" class="form-label">Gender:</label>
+                    {{ form.gender }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_specialization" class="form-label">Specialisation</label>
+                    {{ form.specialization}}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_doctor_phone" class="form-label">Phone Number:</label>
+                    {{ form.phone }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_department" class="form-label">Department:</label>
+                    {{ form.department }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_email" class="form-label">Email:</label>
+                    {{ form.email }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_license_no" class="form-label">License Number:</label>
+                    {{ form.license_no }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_experience" class="form-label">Experience:</label>
+                    {{ form.experience }}
+                </div>
+
+                <div class="form-group">
+                    <label for="id_photo" class="form-label">Upload Photo:</label>
+                    {{ form.photo }}
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br><br>
+    <br><br>
+</div>
+{% endblock %}

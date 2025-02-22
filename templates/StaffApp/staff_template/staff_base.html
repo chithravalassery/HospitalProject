@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    {% block extra_css %}{% endblock %}
+
+    <!-- Favicons -->
+    <link href="{% static 'HospitalApp/assets/img/novo.png' %}" rel="icon">
+    <link href="{% static 'HospitalAdminApp/staff_template/assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'HospitalAdminApp/staff_template/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'HospitalAdminApp/staff_template/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'HospitalAdminApp/staff_template/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'HospitalAdminApp/staff_template/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'HospitalAdminApp/staff_template/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+    <link href="{% static 'HospitalAdminApp/staff_template/assets/css/main.css' %}" rel="stylesheet">
+</head>
+
+<body class="index-page">
+    <!-- Header -->
+    <header id="header" class="header sticky-top">
+        <div class="branding d-flex align-items-center">
+            <div class="container position-relative d-flex align-items-center justify-content-between">
+                <a href="index.html" class="logo d-flex align-items-center">
+                    <img src="{% static 'HospitalAdminApp/staff_template/assets/img/novo.png' %}" alt="">
+                    <h1 class="sitename">NovaCare</h1>
+                </a>
+                <nav id="navmenu" class="navmenu">
+                    <ul>
+                        <li><a href="{% url 'staff_home' %}" >Home</a></li>
+                        <li><a href="{% url 'about' %}">About</a></li>
+                        <li><a href="{% url 'schedule' %}">Schedule</a></li>   
+                        
+                       
+                        
+                        <li class="dropdown">
+                            <a href="#"><span>Profile</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                            <ul class="dropdown">
+                              {% if user.is_authenticated %}
+                              <li><a href="{% url 'staff_profile' %}">View Profile</a></li>
+                              <li><a href="{% url 'change_password' %}">Change password</a></li>
+                              <li><a href="{% url 'staff_logout' %}">Log out</a></li>
+                              {% else %}
+                              <li><a href="{% url 'staff_login' %}">Log In</a></li>
+                              {% endif %}
+                            </ul>
+                        </li>
+
+                
+                    </ul>
+                    <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+   
+        <main id="content">
+            {% if messages %}
+            <div id="message-container">
+            {% for message in messages %}
+            <div class="alert {{ message.tags }}" role="alert">
+            {{ message }}
+            </div>
+            {% endfor %}
+            </div>
+            
+            <script>
+            // Auto-hide messages after 5 seconds (5000 milliseconds)
+            setTimeout(function() {
+            let messageContainer = document.getElementById("message-container");
+            if (messageContainer) {
+              messageContainer.style.display = "none";
+            }
+            }, 5000);
+            </script>
+            {% endif %}
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer">
+        <div class="container text-center mt-4">
+            <p>© <strong class="px-1 sitename">NovaCare</strong> All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'HospitalAdminApp/staff_template/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'HospitalAdminApp/staff_template/assets/vendor/aos/aos.js' %}"></script>
+    <script src="{% static 'HospitalAdminApp/staff_template/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'HospitalAdminApp/staff_template/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'HospitalAdminApp/staff_template/assets/js/main.js' %}"></script>
+
+    <!-- Footer Styling -->
+    <style>
+       
+
+       
+
+        #content {
+            flex: 1;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+           
+           
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+    </style>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+{% extends 'HospitalApp/user_base.html' %}
+{% load static %}
+
+{% block title %}
+Doctors
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <!-- Page Header -->
+    <div class="text-center mb-4">
+        <h1 class="text-primary">Our Specialists</h1>
+        <p class="text-muted">Explore the various departments and the facilities we offer.</p> 
+    </div>
+
+    <!-- Departments Grid -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <!-- Cardiology -->
+
+         <!-- Departments Grid -->
+            <!-- Radiology -->
+        {% for doc in doctors %}
+        <div class="col">
+            <div class="card h-100 d-flex flex-column">
+                <img src="{{ doc.photo.url }}" class="card-img-top" alt="Dr. Sarah Lee">
+                <div class="card-body flex-grow-1 text-center">
+                    <h5 class="card-title text-primary">{{doc.doctor_name}}</h5>
+                    <p class="card-text text-muted">{{doc.department}}</p>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="{% url 'HospitalApp:user_appointment' %}"  class="btn btn-outline-primary">Make Appointment</a>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %} 
+
+    
+
+    </div>
+</div>
+{% endblock %}

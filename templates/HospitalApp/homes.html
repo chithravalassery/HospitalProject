@@ -1,0 +1,103 @@
+{% extends 'HospitalApp/base.html' %}
+
+{% load static %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content%} 
+
+
+<i class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Toggle navigation"></i>
+  
+
+
+  <main class="main">
+
+    <!-- Hero Section -->
+<section id="hero" class="hero section light-background">
+
+  <img src="{% static 'HospitalApp/assets/img/hero-bg.jpg' %}" alt="" data-aos="fade-in">
+
+  <div class="container position-relative">
+
+    <div class="welcome position-relative" data-aos="fade-down" data-aos-delay="100">
+      <h2>WELCOME TO NOVA CARE</h2>
+      <p>We are a team of dedicated healthcare professionals delivering exceptional care and innovation at NovaCare</p>
+    </div><!-- End Welcome -->
+
+    <div class="content row gy-4">
+      <div class="col-lg-4 d-flex align-items-stretch">
+        <div class="why-box" data-aos="zoom-out" data-aos-delay="200">
+          <h3>Why Choose Us?</h3>
+          <p>
+            
+          At NovaCare, we deliver compassionate care with advanced technology for your well-being. 
+          Trust our expert team for reliable, patient-focused healthcare.
+          </p>
+          <div class="text-center">
+            <a href="about_us" class="more-btn"><span>Learn More</span> <i class="bi bi-chevron-right"></i></a>
+          </div>
+        </div>
+      </div><!-- End Why Box -->
+
+      <div class="col-lg-8 d-flex align-items-stretch">
+        <div class="d-flex flex-column justify-content-center">
+          <div class="row gy-4">
+            <div class="col-xl-4 d-flex align-items-stretch">
+              <div class="icon-box" data-aos="zoom-out" data-aos-delay="300">
+                <i class="bi bi-heart-pulse"></i>
+                <h4>Our Doctors</h4>
+                <p>Meet our experienced doctors dedicated to your care and well-being</p>
+                <a href="doctor" class="cta-btn d-none d-sm-block" ><span>View Doctor</span> </a>
+              </div>
+            </div><!-- End Icon Box -->
+
+            <div class="col-xl-4 d-flex align-items-stretch">
+              <div class="icon-box" data-aos="zoom-out" data-aos-delay="400">
+                <i class="bi bi-building"></i>
+                <h4>Departments</h4>
+                <p>Discover our specialized departments for advanced care</p>
+                <a href="departments" class="cta-btn d-none d-sm-block" ><span>View Departments</span> </a>
+              </div>
+            </div><!-- End Icon Box -->
+
+            <div class="col-xl-4 d-flex align-items-stretch">
+              <div class="icon-box" data-aos="zoom-out" data-aos-delay="500">
+                <i class="bi bi-shield-plus"></i>
+                <h4>Packages</h4>
+                <p>Affordable health checkup packages for your well-being</p>
+                <a href="packages" class="cta-btn d-none d-sm-block" ><span>View Packages</span> </a>
+
+              </div>
+            </div><!-- End Icon Box -->
+          </div>
+        </div>
+      </div>
+    </div><!-- End Content-->
+
+  </div>
+
+</section><!-- /Hero Section -->
+
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+ 
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'HospitalApp/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'HospitalApp/assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'HospitalApp/assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'HospitalApp/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'HospitalApp/assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'HospitalApp/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  
+  <!-- Main JS File -->
+  <script src="{% static 'HospitalApp/assets/js/main.js' %}"></script>
+  
+{% endblock %}

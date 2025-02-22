@@ -1,0 +1,61 @@
+{% extends 'HospitalAdminApp/admin_template/admin_base.html' %}
+{% load static %}
+
+{% block title %}View Patient{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">Patient Details</h1>
+
+    <!-- Scrollable container for horizontal scrolling -->
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Patient Name</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Emergency Contact</th>
+                    <th>Admission Date</th>
+                    <th>Profile Photo</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for patient in patients %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ patient.name }}</td>
+                    <td>{{ patient.dob }}</td>
+                    <td>{{ patient.gender }}</td>
+                    <td>{{ patient.phone }}</td>
+                    <td>{{ patient.email }}</td>
+                    <td>{{ patient.address_line1 }}, {{ patient.address_line2 }}</td>
+                    <td>{{ patient.emergency_contact }}</td>
+                    <td>{{ patient.admission_date }}</td>
+                    <td>
+                        {% if patient.profile_photo %}
+                        <img src="{{ patient.profile_photo.url }}" alt="Profile Photo" width="50">
+                        {% else %}
+                        No Photo
+                        {% endif %}
+                    </td>
+                    <td style="white-space: nowrap;">
+                        <a href="{% url 'edit_patient' patient.pk %}" class="btn btn-warning btn-sm">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                          <a href="{% url 'delete_patient' patient.pk %}"  class="btn btn-danger btn-sm" style="display: inline-block;" onclick="return confirm('Are you sure you want to delete this doctor?');"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

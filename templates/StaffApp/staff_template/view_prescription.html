@@ -1,0 +1,65 @@
+{% extends 'StaffApp/staff_template/staff_base.html' %}
+{% load static %}
+
+{% block title %}View Prescription{% endblock %}
+{% block extra_css %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+    }
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+    .prescription-details {
+        margin-top: 20px;
+    }
+    .prescription-details p {
+        font-size: 1.1rem;
+        margin: 10px 0;
+    }
+    .highlight {
+        font-weight: bold;
+        color: #0056b3;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h2>Prescription Details</h2>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th scope="row" class="highlight">Patient Name</th>
+                <td>{{ appointment.patient }}</td>
+            </tr>
+            <tr>
+                <th scope="row" class="highlight">Appointment Date</th>
+                <td>{{ appointment.appointment_date }}</td>
+            </tr>
+            <tr>
+                <th scope="row" class="highlight">Prescription</th>
+                <td>{{ appointment.prescription }}</td>
+            </tr>
+            <tr>
+                <th scope="row" class="highlight">Notes</th>
+                <td>{{ appointment.notes }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

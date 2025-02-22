@@ -1,0 +1,48 @@
+{% extends 'StaffApp/staff_template/staff_base.html' %}
+{% load static %}
+
+{% block title %}Staff Login{% endblock %}
+
+{% block content %}
+<div class="container-fluid py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+     <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+      <div class="card bg-dark text-white" >
+       <div class="card-body p-5 text-center">
+        <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+        <p class="text-white-50 mb-5">Please enter your login and password!</p>
+       
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <div class="form-outline mb-4">
+                   
+                    {{ form.username }}
+                </div>
+
+                <div class="form-outline mb-4">
+                  
+                    {{ form.password }}
+                </div>
+
+                <div class="form-outline mb-4 d-grid gap-2">
+                    <button type="submit" class="btn btn-info">Login</button>
+                </div>
+
+            </form>
+
+          
+         
+         
+         <div>
+          <p class="mb-2"> Forget password? <a class="text-white-50 fw-bold" href="#!">Forget Password</a></p>
+         </div>
+         <hr class="my-4"> 
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+  </body>
+{% endblock %}

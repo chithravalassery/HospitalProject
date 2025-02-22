@@ -1,0 +1,97 @@
+{% extends 'HospitalAdminApp/admin_template/admin_base.html' %}
+{% load static %}
+
+{% block title %}Add Department{% endblock %}
+
+{% block extra_css %}
+<style>
+    .custom-card {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 12px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .form-label {
+        font-weight: bold;
+        font-size: 1rem;
+        text-align: right;
+        padding-right: 15px;
+        display: block;
+    }
+
+    .table {
+        width: 100%;
+    }
+
+    .table td {
+        padding: 10px;
+        vertical-align: middle;
+    }
+
+    .table input, .table textarea {
+        width: 100%; /* Ensure same length */
+        padding: 10px;
+        font-size: 1rem;
+        border-radius: 6px;
+        border: 1px solid #ced4da;
+        background: #fff;
+    }
+
+    .table textarea {
+        resize: none;
+        height: 100px;
+    }
+
+    /* Center and reduce button size */
+    .text-center {
+        margin-top: 20px;
+    }
+
+    .btn-primary {
+        width: 30%; /* Reduced width */
+        font-size: 1rem;
+        padding: 6px;
+        border-radius: 6px;
+        transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+        background: #0056b3;
+        transform: scale(1.05);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">Update department details</h1>
+
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table class="table table-bordered">
+            <tr>
+                <td><label for="id_department" class="form-label">Department</label></td>
+                <td>{{ form.name }}</td>
+            </tr>
+
+            <tr>
+                <td><label for="id_details" class="form-label">Details</label></td>
+                <td>{{ form.notes }}</td>
+            </tr>
+
+            <tr>
+                <td><label for="id_photo" class="form-label">Photo</label></td>
+                <td>{{ form.department_photo }}</td>
+            </tr>
+        </table>
+
+        <div class="text-center">
+            <input type="submit" class="btn btn-primary" value="Update">
+        </div>
+    </form>
+</div>
+{% endblock %}

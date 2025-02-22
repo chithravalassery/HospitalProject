@@ -1,0 +1,85 @@
+{% extends 'HospitalApp/user_base.html' %}
+{% load static %}
+
+{% block title %}Feedback & Grievances{% endblock %}
+
+{% block extra_css %}
+<style>
+    .table {
+        width: 100%;
+        max-width: 600px; /* Adjust width as needed */
+        margin: 0 auto;
+    }
+
+    .table td {
+        padding: 10px;
+    }
+
+    .table td label {
+        font-weight: bold;
+    }
+
+    .table input,
+    .table textarea {
+        width: 100%;
+        padding: 8px;
+        font-size: 1rem;
+        border: 1px solid #ced4da;
+        border-radius: 6px;
+    }
+
+    /* Smaller Submit Button */
+    input[type="submit"] {
+        display: block;
+        width: 150px; /* Adjust width */
+        padding: 6px; /* Adjust padding */
+        font-size: 1rem; /* Adjust font size */
+        font-weight: bold;
+        color: white;
+        background: #007bff;
+        border: none;
+        border-radius: 6px;
+        transition: background 0.3s ease-in-out;
+        margin: 10px auto; /* Centering */
+    }
+
+    input[type="submit"]:hover {
+        background: #0056b3;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Feedback Section -->
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Feedback</h2>
+    <p class="text-center text-muted mb-5">We value your feedback and are committed to addressing your concerns.</p>
+
+    <!-- Form Section -->
+    <div class="container mt-5">
+       
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table class="table table-bordered">
+                <tr>
+                    <td><label for="id_name">Your Name</label></td>
+                    <td>{{ form.name }}</td>
+                </tr>
+
+                <tr>
+                    <td><label for="id_email">Your Email</label></td>
+                    <td>{{ form.email }}</td>
+                </tr>
+
+                <tr>
+                    <td><label for="id_message">Your Feedback</label></td>
+                    <td>{{ form.message }}</td>
+                </tr>
+            </table>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</div>
+{% endblock %}

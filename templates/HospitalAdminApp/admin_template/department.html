@@ -1,0 +1,117 @@
+{% extends 'HospitalAdminApp/admin_template/admin_base.html' %}
+{% load static %}
+
+{% block title %}Department{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Scrollable table */
+    .table-container {
+        max-height: 400px; /* Adjust height as needed */
+        overflow-y: auto; /* Vertical scrollbar */
+        overflow-x: auto; /* Horizontal scrollbar */
+    }
+
+    /* Prevent text wrapping and clip overflow */
+    table td, table th {
+        white-space: nowrap; /* Prevents text wrapping */
+        overflow: hidden; /* Hides overflow */
+        text-overflow: ellipsis; /* Adds "..." for long text */
+        max-width: 200px; /* Adjust column width as needed */
+    }
+
+    /* Center align action buttons */
+    table td:last-child {
+        text-align: center;
+    }
+
+    /* Adjust button size */
+    .btn {
+        margin: 2px;
+    }
+
+    /* Add styling to the page */
+    .department-list {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .department-list li {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        padding: 8px;
+        background-color: #f8f9fa;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .department-list li:hover {
+        background-color: #e9ecef;
+        cursor: pointer;
+    }
+
+    .heading {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #007bff;
+    }
+
+    .add-button {
+        background-color: #28a745;
+        color: white;
+        font-weight: bold;
+    }
+
+    .add-button:hover {
+        background-color: #218838;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4"> 
+    <div class="ms-md-auto py-2 py-md-0">
+        <a href="add_department" class="btn add-button btn-round me-2">Add new department</a>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <h2 class="text-center">Department List</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Department</th>
+                    <th>Details</th>
+                    <th>Photo</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for department in departments %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ department.name }}</td>
+                    <td>{{ department.notes }}</td>
+                    <td>
+                        <img src="{{ department.department_photo.url }}" alt="Department Photo" width="50" height="50">
+                    </td>
+                    <td>
+                        <a href="{% url 'edit_department' department.pk %}" class="btn btn-warning btn-sm">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a href="{% url 'delete_department' department.pk %}"  class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?');">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- FontAwesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+{% endblock %}

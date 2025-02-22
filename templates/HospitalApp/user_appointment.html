@@ -1,0 +1,125 @@
+{% extends 'HospitalApp/user_base.html' %}
+{% load static %}
+
+{% block title %}Make an Appointment{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Ensures uniform table layout */
+    .custom-table {
+        width: 100%;
+        font-size: 1.1rem;
+        table-layout: fixed; /* Ensures equal column widths */
+    }
+
+    .custom-table td {
+        padding: 12px;
+        vertical-align: middle;
+        width: 50%; /* Equal column width */
+    }
+
+    .custom-table label {
+        font-weight: bold;
+        font-size: 1rem;
+    }
+
+    /* Form Fields */
+    select, input {
+        width: 100% !important;
+        padding: 10px;
+        font-size: 1rem;
+        border-radius: 6px;
+        border: 1px solid #ced4da;
+        background: #fff;
+        box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Button Styling */
+    .btn-primary {
+        width: 100%;
+        font-size: 1.2rem;
+        padding: 12px;
+        border-radius: 8px;
+        transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+        background: #0056b3;
+        transform: scale(1.05);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="custom-card">
+        <h1 class="text-center mb-4">Make an Appointment</h1>
+
+        <!-- Unified Table for all Forms -->
+        <table class="table table-bordered custom-table">
+            <!-- First Form: Doctor Selection -->
+            <form method="GET">
+                <tr>
+                    <td><label for="id_doctor" class="form-label">Choose a Doctor</label></td>
+                    <td>
+                        <select name="doctor" class="form-control" onchange="this.form.submit()">
+                            <option value="">Select a Doctor</option>
+                            {% for doctor in form.fields.doctor.queryset %}
+                                <option value="{{ doctor.id }}" {% if doctor.id|stringformat:"s" == selected_doctor_id %}selected{% endif %}>
+                                    {{ doctor.name }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+            </form>
+
+            <!-- Second Form: Date Selection -->
+            <form method="GET">
+                <input type="hidden" name="doctor" value="{{ selected_doctor_id }}">
+                <tr>
+                    <td><label for="id_appointment_date" class="form-label">Select Date</label></td>
+                    <td>
+                        <input type="date" name="appointment_date" class="form-control"
+                               value="{{ request.GET.appointment_date|default:selected_date|default:'' }}"
+                               onchange="this.form.submit()">
+                    </td>
+                </tr>
+            </form>
+            
+
+            <!-- Third Form: Appointment Booking -->
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="hidden" name="doctor" value="{{ selected_doctor_id }}">
+                <input type="hidden" name="appointment_date" value="{{ selected_date }}">
+                <tr>
+                    <td><label for="id_appointment_slot" class="form-label">Select Slot</label></td>
+                    <td>
+                        <select name="appointment_slot" class="form-control">
+                            {% for value, label in form.fields.appointment_slot.choices %}
+                                {% if value in booked_slots %}
+                                    <option value="{{ value }}" disabled>{{ label }} (Booked)</option>
+                                {% else %}
+                                    <option value="{{ value }}">{{ label }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="id_phone" class="form-label">Phone Number</label></td>
+                    <td>{{ form.phone }}</td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" class="text-center">
+                        <button type="submit" class="btn btn-primary btn-lg">Book Appointment</button>
+                    </td>
+                </tr>
+            </form>
+        </table>
+    </div>
+</div>
+{% endblock %}

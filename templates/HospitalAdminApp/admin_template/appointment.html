@@ -1,0 +1,73 @@
+{% extends 'HospitalAdminApp/admin_template/admin_base.html' %}
+{% load static %}
+
+{% block title %}View Doctors{% endblock %}
+{% block extra_css %}
+<style>
+    /* Ensure the table container is scrollable */
+    .table-container {
+        width: 100%;
+        overflow-x: auto; /* Enable horizontal scrolling */
+    }
+
+    /* Ensure table doesn't shrink */
+    table {
+        min-width: 1200px; /* Adjust this based on content */
+        border-collapse: collapse;
+    }
+
+    /* Prevent text wrapping */
+    table th, table td {
+        white-space: nowrap;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center mt-4"><strong>Appointment Details</strong></h2>
+
+    <!-- Added scrollable container -->
+    <div class="table-container">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Patient</th>
+                    <th>Doctor</th>
+                    <th>Appointment Date</th>
+                    <th>Slot</th>
+                    <th>Phone Number</th>
+                    <th>Status</th>
+                    <th>Notes</th>
+                    <th>Prescription</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for appointment in appointments %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ appointment.patient }}</td>
+                    <td>{{ appointment.doctor }}</td>
+                    <td>{{ appointment.appointment_date }}</td>
+                    <td>Slot {{ appointment.appointment_slot }}</td>
+                    <td>{{ appointment.appointment_ph_no }}</td>
+                    <td>{{ appointment.status }}</td>
+                    <td>{{ appointment.notes }}</td>
+                    <td>{{ appointment.prescription }}</td>
+                    <td>
+                        <a href="{% url 'edit_appointment' appointment.pk %}" class="btn btn-warning btn-sm">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a href="{% url 'delete_appointment' appointment.pk %}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete?');">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

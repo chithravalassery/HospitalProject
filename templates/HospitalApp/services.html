@@ -1,0 +1,85 @@
+{% extends 'HospitalApp/base.html' %}
+{% load static %}
+
+{% block title %}Our Services{% endblock %}
+
+{% block content %}
+<!-- Section Title -->
+<div class="container my-5">
+  <div class="row justify-content-center text-center">
+    <div class="col-md-8">
+      <h2>Our Healthcare Services</h2>
+      <p class="lead">We offer a wide range of healthcare services to ensure you receive the best care possible.</p>
+    </div>
+  </div>
+  
+  <!-- Services Section -->
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <!-- Service 1 -->
+    <div class="col">
+      <div class="card shadow-sm">
+        <img src="{% static 'HospitalApp/assets/img/carousel/carousel3.jpeg' %}" class="card-img-top" alt="Service 1">
+        <div class="card-body">
+          <h5 class="card-title">General Consultation</h5>
+          <p class="card-text">Our experienced doctors offer general consultations to address a variety of health issues.</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Service 2 -->
+    <div class="col">
+      <div class="card shadow-sm">
+        <img src="{% static 'HospitalApp/assets/img/carousel/carousel2.jpeg' %}" class="card-img-top" alt="Service 2">
+        <div class="card-body">
+          <h5 class="card-title">Emergency Care</h5>
+          <p class="card-text">24/7 emergency care available with state-of-the-art equipment and a professional medical team.</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Service 3 -->
+    <div class="col">
+      <div class="card shadow-sm">
+        <img src="{% static 'HospitalApp/assets/img/carousel/carousel1.jpeg' %}" class="card-img-top" alt="Service 3">
+        <div class="card-body">
+          <h5 class="card-title">Surgical Services</h5>
+          <p class="card-text">Advanced surgical procedures performed by our skilled surgeons to ensure the best outcomes.</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Service 4 -->
+    <div class="col">
+      <div class="card shadow-sm">
+        <img src="{% static 'HospitalApp/assets/img/carousel/carousel1.jpeg' %}" class="card-img-top" alt="Service 4">
+        <div class="card-body">
+          <h5 class="card-title">Diagnostic Services</h5>
+          <p class="card-text">Comprehensive diagnostic services including blood tests, X-rays, and scans to help with accurate diagnosis.</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Service 5 -->
+    <div class="col">
+      <div class="card shadow-sm">
+        <img src="{% static 'HospitalApp/assets/img/carousel/carousel2.jpeg' %}" class="card-img-top" alt="Service 5">
+        <div class="card-body">
+          <h5 class="card-title">Pediatric Care</h5>
+          <p class="card-text">Compassionate care for children, from routine checkups to specialized pediatric treatments.</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Service 6 -->
+    <div class="col">
+      <div class="card shadow-sm">
+        <img src="{% static 'HospitalApp/assets/img/carousel/carousel3.jpeg' %}" class="card-img-top" alt="Service 6">
+        <div class="card-body">
+          <h5 class="card-title">Rehabilitation Services</h5>
+          <p class="card-text">Therapies to help patients recover after surgery, accidents, or long-term illness.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

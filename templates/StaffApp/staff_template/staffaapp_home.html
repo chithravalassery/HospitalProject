@@ -1,0 +1,108 @@
+{% extends 'HospitalAdminApp/admin_template/admin_base.html' %}
+{% load static %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block extra_css %}
+<style>
+    .dashboard-card {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+    }
+as
+    .dashboard-card h4 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .card-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .card-container .dashboard-card {
+        flex: 1 1 22%;
+        min-width: 250px;
+        margin-bottom: 20px;
+    }
+
+    .card-icon {
+        font-size: 2.5rem;
+        color: #007bff;
+    }
+
+    .btn-primary {
+        font-size: 1rem;
+        padding: 10px 20px;
+        border-radius: 5px;
+        background: #007bff;
+        border: none;
+        color: #fff;
+    }
+
+    .btn-primary:hover {
+        background: #0056b3;
+    }
+
+    .welcome-message {
+        text-align: center;
+        font-size: 1.5rem;
+        margin-top: 20px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <!-- Welcome message -->
+    <div class="welcome-message">
+        <h1>Welcome to the Admin Dashboard!</h1>
+        <p>Manage and monitor all activities from here.</p>
+    </div>
+
+    <!-- Dashboard Cards -->
+    <div class="card-container">
+        <!-- Total U sers Card -->
+        <div class="dashboard-card">
+            <i class="fa fa-users card-icon"></i>
+            <h4>Total Patients</h4>
+            <p>150</p>
+        </div>
+
+        <!-- Total Doctors Card -->
+        <div class="dashboard-card">
+            <i class="fa fa-user-md card-icon"></i>
+            <h4>Total Doctors</h4>
+            <p>30</p>
+        </div>
+
+        <!-- Total Appointments Card -->
+        <div class="dashboard-card">
+            <i class="fa fa-calendar-check card-icon"></i>
+            <h4>Total Appointments</h4>
+            <p>120</p>
+        </div>
+
+        <!-- Pending Requests Card -->
+        <div class="dashboard-card">
+            <i class="fa fa-clock card-icon"></i>
+            <h4>Pending Appointments</h4>
+            <p>5</p>
+        </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="text-center">
+        <a href="#" class="btn btn-primary">Manage Users</a>
+        <a href="#" class="btn btn-primary">Manage Doctors</a>
+        <a href="#" class="btn btn-primary">View Appointments</a>
+    </div>
+</div>
+{% endblock %}

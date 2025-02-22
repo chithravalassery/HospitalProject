@@ -1,0 +1,56 @@
+{% extends 'StaffApp/staff_template/staff_base.html' %}
+{% load static %}
+
+{% block title %}Services{% endblock %}
+
+{% block content %}
+
+  
+    <!-- Main Content -->
+    <main id="main" class="services-page">
+        <div class="container py-5">
+            <div class="section-title text-center mb-5">
+                <h2 class="fw-bold">Our Services</h2>
+                <p>Explore the range of services offered by NovaCare </p>
+            </div>
+
+            <div class="row gy-4">
+               
+
+                <!-- Service 2 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-box">
+                        <div class="icon"><i class="bi bi-calendar2-check"></i></div>
+                        <h4 class="title">Shift Scheduling</h4>
+                        <p class="description">Simplify shift planning and ensure seamless coordination across departments.</p>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-box">
+                        <div class="icon"><i class="bi bi-file-medical"></i></div>
+                        <h4 class="title">Patient Record Management</h4>
+                        <p class="description">Centralized access to patient records for improved healthcare delivery.</p>
+                    </div>
+                </div>
+
+               
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer mt-auto py-3 bg-light">
+        <div class="container text-center">
+            <p>&copy; 2025 <strong>NovaCare</strong>. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="{% static 'HospitalAdminApp/staff_template/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'HospitalAdminApp/staff_template/assets/vendor/aos/aos.js' %}"></script>
+    <script>
+        AOS.init();
+    </script>
+{% endblock %}

@@ -1,0 +1,117 @@
+{% extends 'StaffApp/staff_template/staff_base.html' %}
+{% load static %}
+
+{% block title %}Add Prescription{% endblock %}
+
+{% block extra_css %}
+
+<style>
+    /* Background Styling */
+    body {
+        background-image: url("{% static 'HospitalApp/assets/img/hero-bg.jpg' %}");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: #333;
+        font-family: 'Arial', sans-serif;
+    }
+
+    /* Card Styling */
+    .custom-card {
+        max-width: 750px;
+        margin: 0 auto;
+        padding: 5px;
+        background: rgba(255, 255, 255, 0.95); 
+        border-radius: 12px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s;
+    }
+
+    .custom-card:hover {
+        transform: translateY(-5px);
+    }
+
+    /* Table Styling */
+    .custom-table {
+        width: 100%;
+        font-size: 1.1rem;
+    }
+
+    .custom-table td {
+        padding: 12px;
+        vertical-align: middle;
+    }
+
+    .custom-table label {
+        font-weight: bold;
+        font-size: 1rem;
+    }
+
+    /* Form Fields */
+    select, input {
+        width: 76% !important;
+        padding: 10px;
+        font-size: 1rem;
+        border-radius: 6px;
+        border: 1px solid #ced4da;
+        background: #fff;
+        box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Button Styling */
+    .btn-primary {
+        width: 30%;
+        font-size: 1.2rem;
+        padding: 12px;
+        border-radius: 8px;
+        transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+        background: #0056b3;
+        transform: scale(1.05);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container mt-5">
+    <div class="custom-card">
+        <h1 class="text-center mb-4">Add Prescription</h1>
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <table class="table table-bordered custom-table">
+                
+                
+                <tr>
+                    <td><label for="id_prescription" class="form-label">Add the prescription</label></td>
+                    <td>{{ form.prescription }}</td>
+                </tr>
+
+                <tr>
+                    <td><label for="id_notes" class="form-label">Remarks/notes if any</label></td>
+                    <td>{{ form.notes }}</td>
+                </tr>
+
+            </table>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                <br>
+        <br>
+        <br><br>
+            </div>
+        </form>
+        
+
+    </div>
+</div>
+
+
+
+{% endblock %}
+

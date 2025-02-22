@@ -1,0 +1,81 @@
+{% extends 'HospitalApp/user_base.html' %}
+{% load static %}
+
+{% block title %}Health Checkup Packages{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Health Checkup Packages</h2>
+    <p class="text-center">
+        Take charge of your health with our specially designed preventive health checkup packages. 
+        Early detection can make all the difference—because your health matters.
+    </p>
+
+    <!-- Packages Section -->
+    <div class="row">
+        <!-- Basic Health Checkup -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title text-center">Basic </h4>
+                    <p>Ideal for maintaining general health. This package includes:</p>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-check-circle-fill" style="color: #ffc107;"></i> Complete Blood Count (CBC)</li>
+                        <li><i class="bi bi-check-circle-fill" style="color: #ffc107;"></i> Blood Pressure Monitoring</li>
+                        <li><i class="bi bi-check-circle-fill" style="color: #ffc107;"></i> Fasting Blood Sugar</li>
+                        <li><i class="bi bi-check-circle-fill" style="color: #ffc107;"></i> Lipid Profile</li>
+                     </ul>
+                    <p class="text-center mt-3"><strong>Price: ₹999</strong></p>
+                    <div class="text-center">
+                        <a href="book_packages" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comprehensive Health Checkup -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title text-center">Comprehensive</h4>
+                    <p>For a deeper look into your overall health. This package covers:</p>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-check-circle-fill" style="color: #007bff;"></i> Liver Function Test (LFT)</li>
+                        <li><i class="bi bi-check-circle-fill" style="color: #007bff;"></i> Kidney Function Test (KFT)</li>
+                        <li><i class="bi bi-check-circle-fill" style="color: #007bff;"></i> ECG and Chest X-Ray</li>
+                        <li><i class="bi bi-check-circle-fill" style="color: #007bff;"></i> Vitamin D and B12 Levels</li>
+
+                    </ul>
+                    <p class="text-center mt-3"><strong>Price: ₹2,499</strong></p>
+                    <div class="text-center">
+                        <a href="book_packages" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Advanced Health Checkup -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title text-center">Advanced</h4>
+                    <p>Designed for a complete and detailed health evaluation. Includes:</p>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-check-circle-fill" style="color: #28a745;"></i> Diabetes Risk Assessment</li>
+                        <li><i class="bi bi-check-circle-fill" style="color: #28a745;"></i> Thyroid Function Test</li>
+                        <li><i class="bi bi-check-circle-fill" style="color: #28a745;"></i> Ultrasound Abdomen</li>
+                        <li><i class="bi bi-check-circle-fill" style="color: #28a745;"></i> Cardiac Screening</li>
+                    
+                        
+                    </ul>
+                    <p class="text-center mt-3"><strong>Price: ₹4,999</strong></p>
+                    <div class="text-center">
+                        <a href="book_packages" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
