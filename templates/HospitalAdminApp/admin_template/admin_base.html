@@ -76,14 +76,14 @@
         <div class="sidebar-wrapper scrollbar scrollbar-inner">
           <div class="sidebar-content">
             <ul class="nav nav-secondary">
-              
+
               <li class="nav-item">
                 <a href="{% url 'admin_home'  %}">
                   <i class="fas fa-home"></i>
                   <p>Dashboard</p>
                 </a>
               </li>
-              
+
               <li class="nav-item">
                 <a href="{% url 'patient'  %}">
                   <i class="fas fa-layer-group"></i>
@@ -112,7 +112,7 @@
                 </a>
               </li>
 
-              
+
             </ul>
           </div>
         </div>
@@ -146,14 +146,21 @@
             </div>
             <!-- End Logo Header -->
           </div>
-          
+
         </div>
 
         <div class="container">
           <div class="page-inner">
-          
-            
+
+
           </div>
+           {% if user.is_authenticated %}
+          <li class="nav-item">
+    <a href="{% url 'admin_logout' %}" class="btn btn-danger">
+        <i class="fas fa-sign-out-alt"></i> Logout
+    </a>
+</li>
+{% endif %}
           <main id="content">
             {% if messages %}
 <div id="message-container">
@@ -175,25 +182,25 @@
 </script>
 {% endif %}
 
-        
+
             {% block content %}
             {% endblock %}
-            
+
           </main>
         </div>
 
         <footer class="footer">
           <div class="container-fluid d-flex justify-content-between">
-            
+
             <div class="copyright">
              <p text-align: right> © <strong class="px-1 sitename">NovaCare</strong> All Rights Reserved</p>
             </div>
-            
+
           </div>
         </footer>
       </div>
 
-     
+
     </div>
     <!--   Core JS Files   -->
     <script src="{% static 'HospitalAdminApp/admin_template/assets/js/core/jquery-3.7.1.min.js' %}"></script>

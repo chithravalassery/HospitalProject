@@ -15,6 +15,7 @@ urlpatterns = [
     path('view_prescription/<int:appointment_id>/', views.view_prescription, name='view_prescription'),
     path('admin', views.admin),
     path('change_password', views.change_password, name="change_password"),
-   
+    path('download_prescription/<int:appointment_id>/', views.generate_prescription_pdf, name='download_prescription'),
+
     
 ]

@@ -7,9 +7,9 @@ from . import views
 
 app_name = 'HospitalApp'
 urlpatterns = [
-    
-    path('user_home', views.user_home, name='user_home' ),
-    
+
+    path('', views.user_home, name='user_home' ),
+
     # path('user_homepage', views.user_homepage),
     path('user_about_us', views.user_about_us, name='user_about_us'),
     path('user_services', views.user_services, name="user_services"),
@@ -21,7 +21,7 @@ urlpatterns = [
     path('patient_profile', views.patient_profile, name="patient_profile"),
     path('user_appointment', views.user_appointment,name= 'user_appointment'),
     path('user_view_appointment', views.user_view_appointment, name="user_view_appointment"),
-   
+
     path('user_view_profile', views.user_view_profile, name="user_view_profile"),
     path('add_patient', views.add_patient, name="add_patient"),
     path('edit_patient/<int:pk>', views.edit_patient, name='edit_patient'),

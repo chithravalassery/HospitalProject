@@ -10,6 +10,39 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth import update_session_auth_hash
 from django.utils import timezone
 
+from django.shortcuts import get_object_or_404
+from django.http import HttpResponse
+from xhtml2pdf import pisa
+
+
+from django.template.loader import get_template
+
+
+
+
+
+
+
+def generate_prescription_pdf(request, appointment_id):
+    appointment = get_object_or_404(Appointment, id=appointment_id)
+    
+    
+    # Load the template
+    template = get_template('StaffApp/staff_template/pdf_template.html')
+    context = {'appointment': appointment}
+    html = template.render(context)
+
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = f'attachment; filename="prescription_{appointment.id}.pdf"'
+
+    # Generate PDF
+    pisa_status = pisa.CreatePDF(html, dest=response)
+    if pisa_status.err:
+        return HttpResponse('We had some errors while generating the PDF', status=500)
+    
+    return response
+
+
 
 
 # Create your views here.

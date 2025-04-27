@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            /* font-family: Arial, sans-serif; */
+            margin: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .highlight {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <h2>Prescription Details</h2>
+    <table>
+        <tr>
+            <th class="highlight">Patient Name</th>
+            <td>{{ appointment.patient }}</td>
+        </tr>
+        <tr>
+            <th class="highlight">Appointment Date</th>
+            <td>{{ appointment.appointment_date }}</td>
+        </tr>
+        <tr>
+            <th class="highlight">Prescription</th>
+            <td>{{ appointment.prescription }}</td>
+        </tr>
+        <tr>
+            <th class="highlight">Notes</th>
+            <td>{{ appointment.notes }}</td>
+        </tr>
+    </table>
+
+</body>
+</html>
+
+

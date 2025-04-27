@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from .models import *
 from HospitalApp.forms import *
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth import authenticate, login, logout
 
 
 
@@ -42,6 +43,11 @@ def admin_login(request):
             messages.error(request, "Invalid credentials. Please try again.")  # Same message for all failures
 
     return render(request, 'HospitalAdminApp/admin_template/login.html')
+
+
+def CustomLogoutView(request):
+    logout(request)
+    return redirect('admin_login')
 
 
 def is_doctor(user):

@@ -2,15 +2,15 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-   
+
     # path('staff_login',views.staff_login),
     path('sign_up',views.sign_up, name='staff_sign_up'),
     path('admin_home',views.admin_home, name='admin_home'),
     path('admin_login',views.admin_login, name='admin_login'),
+    path('admin_logout/', views.CustomLogoutView, name='admin_logout'),
 
-    
-    
-    
+
+
 
 
     path('patient',views.patient, name="patient"),
@@ -31,5 +31,5 @@ urlpatterns = [
     path('delete_appointment/<int:pk>/', views.delete_appointment, name='delete_appointment'),
 
     #
-    
+
 ]

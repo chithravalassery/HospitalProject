@@ -110,7 +110,7 @@ class PrescriptionForm(forms.ModelForm):
 
         labels = {
             'prescription': 'Add the prescription',
-            'notes': 'Remarks if any'
+            'notes': 'Disease'
         }
 
         widgets = {
